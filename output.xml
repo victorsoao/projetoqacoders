@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-08-01T20:13:03.436953" rpa="false" schemaversion="5">
+<suite id="s1" name="Diretoria" source="c:\Supernatural\Robot-Framework ( Novo )\Card23331CadastrarNovaDIretoria\tests\diretoria.robot">
+<test id="s1-t1" name="CT05: Nao permitir cadastrar diretoria com nome acima do limite maximo (51 caracteres)" line="64">
+<kw name="Realizar Login e Salvar Token" owner="auth" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-01T20:13:04.156544" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-01T20:13:04.156101" elapsed="0.003897"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-08-01T20:13:04.161509" level="INFO">Creating Session using : alias=supernatural, url=https://api-supernatural.qacoders.dev.br/api, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>alias=supernatural</arg>
+<arg>url=${BASE_URL}</arg>
+<arg>headers=${headers}</arg>
+<arg>verify=${True}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-08-01T20:13:04.160696" elapsed="0.001563"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-01T20:13:04.163701" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<var>${body}</var>
+<arg>mail=sysadmin@qacoders.com</arg>
+<arg>password=1234@Test</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-01T20:13:04.162877" elapsed="0.001141"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-01T20:13:05.391056" level="INFO">POST Request : url=https://api-supernatural.qacoders.dev.br/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
+ body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
+ </msg>
+<msg time="2025-08-01T20:13:05.391712" level="INFO">POST Response : url=https://api-supernatural.qacoders.dev.br/api/login 
+ status=200, reason=OK 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '1334', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 01 Aug 2025 23:12:58 GMT', 'Etag': 'W/"536-QvYW+E5kae0NdVi8ecCoF72tJx4"', 'X-Powered-By': 'Express'} 
+ body={"msg":"Olá Qa-Coders-SYSADMIN, autenticação autorizada com sucesso!","user":{"_id":"6888ecda6d0acf13553c9eec","fullName":"Qa-Coders-SYSADMIN","mail":"sysadmin@qacoders.com","password":"$2b$10$LgD0Z/OD9TL6XFx2gPEpq.S6JTP1EDgaT/I5LIo7VeMWOqtzQJh2K","accessProfile":"SYSADMIN","cpf":"11111111111","status":true,"audit":[{"registeredBy":{"userId":"111111111111111111","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 12:46:34 BRT","registrationNumber":"01","companyId":"Qa.Coders","_id":"6888ecda6d0acf13553c9eed"}],"__v":0},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQwODk5NzgsImV4cCI6MTc1NDE3NjM3OH0.cWEYpzaIYe6kYWNgQewk1aa83ef4QSNiKfKFmfYUKbI"} 
+ </msg>
+<msg time="2025-08-01T20:13:05.391977" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>alias=supernatural</arg>
+<arg>url=/login</arg>
+<arg>json=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-01T20:13:04.164558" elapsed="1.227526"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.392322" elapsed="0.000398"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-01T20:13:05.394602" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9...</msg>
+<var>${token}</var>
+<arg>${response.json()["token"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.393111" elapsed="0.001744"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-08-01T20:13:05.396693" level="INFO">${AUTH_TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9...</msg>
+<arg>${AUTH_TOKEN}</arg>
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.395260" elapsed="0.001708"/>
+</kw>
+<doc>Realiza o login com um usuário fixo e salva o token de autenticação
+para ser usado por toda a suíte de testes.</doc>
+<status status="PASS" start="2025-08-01T20:13:04.155165" elapsed="1.241978"/>
+</kw>
+<kw name="Generate Random String" owner="String">
+<msg time="2025-08-01T20:13:05.399437" level="INFO">${parte_randomica} = mopqstpnvwyfaatkaawzgnzuypvuleujiopwfdlgugfjaqjdsx</msg>
+<var>${parte_randomica}</var>
+<arg>50</arg>
+<arg>[LOWER]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.397905" elapsed="0.003087"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-01T20:13:05.402488" level="INFO">${nome_longo_final} = Emopqstpnvwyfaatkaawzgnzuypvuleujiopwfdlgugfjaqjdsx</msg>
+<var>${nome_longo_final}</var>
+<arg>E${parte_randomica}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.401755" elapsed="0.001056"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-01T20:13:05.404478" level="INFO">${body} = {'name': 'Emopqstpnvwyfaatkaawzgnzuypvuleujiopwfdlgugfjaqjdsx'}</msg>
+<var>${body}</var>
+<arg>name=${nome_longo_final}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.403881" elapsed="0.000827"/>
+</kw>
+<kw name="Cadastrar nova diretoria" owner="diretoria">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-08-01T20:13:05.407117" level="INFO">${body} = {'boardName': 'Emopqstpnvwyfaatkaawzgnzuypvuleujiopwfdlgugfjaqjdsx'}</msg>
+<var>${body}</var>
+<arg>boardName=${nome_diretoria}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.406574" elapsed="0.001569"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-08-01T20:13:05.597721" level="INFO">POST Request : url=https://api-supernatural.qacoders.dev.br/api/board?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQwODk5NzgsImV4cCI6MTc1NDE3NjM3OH0.cWEYpzaIYe6kYWNgQewk1aa83ef4QSNiKfKFmfYUKbI 
+ path_url=/api/board?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQwODk5NzgsImV4cCI6MTc1NDE3NjM3OH0.cWEYpzaIYe6kYWNgQewk1aa83ef4QSNiKfKFmfYUKbI 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '68'} 
+ body=b'{"boardName": "Emopqstpnvwyfaatkaawzgnzuypvuleujiopwfdlgugfjaqjdsx"}' 
+ </msg>
+<msg time="2025-08-01T20:13:05.598720" level="INFO">POST Response : url=https://api-supernatural.qacoders.dev.br/api/board?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQwODk5NzgsImV4cCI6MTc1NDE3NjM3OH0.cWEYpzaIYe6kYWNgQewk1aa83ef4QSNiKfKFmfYUKbI 
+ status=400, reason=Bad Request 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '72', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Fri, 01 Aug 2025 23:12:59 GMT', 'Etag': 'W/"48-qEiFfTfoVRCVoKtuecjQ3Z+pvQE"', 'X-Powered-By': 'Express'} 
+ body={"error":["O campo 'diretoria' deve possuir no máximo 50 caracteres."]} 
+ </msg>
+<msg time="2025-08-01T20:13:05.599392" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>alias=supernatural</arg>
+<arg>url=/board?token=${AUTH_TOKEN}</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.408650" elapsed="0.191013"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2025-08-01T20:13:05.599892" elapsed="0.000243"/>
+</return>
+<msg time="2025-08-01T20:13:05.600607" level="INFO">${resp_erro} = &lt;Response [400]&gt;</msg>
+<var>${resp_erro}</var>
+<arg>${nome_longo_final}</arg>
+<doc>Envia uma requisição POST para criar uma nova diretoria.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.405659" elapsed="0.195147"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<arg>${resp_erro}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.601536" elapsed="0.000797"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${resp_erro.json()}[error][0]</arg>
+<arg>${MSG_ERRO_MAX_CHARS}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-08-01T20:13:05.604282" elapsed="0.002049"/>
+</kw>
+<tag>boundary</tag>
+<tag>negative</tag>
+<tag>POST</tag>
+<status status="PASS" start="2025-08-01T20:13:04.153731" elapsed="1.454726"/>
+</test>
+<status status="PASS" start="2025-08-01T20:13:03.448830" elapsed="2.162663"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">boundary</stat>
+<stat pass="1" fail="0" skip="0">negative</stat>
+<stat pass="1" fail="0" skip="0">POST</stat>
+</tag>
+<suite>
+<stat name="Diretoria" id="s1" pass="1" fail="0" skip="0">Diretoria</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
