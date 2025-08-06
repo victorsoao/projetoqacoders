@@ -1,185 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-08-05T11:07:34.881891" rpa="false" schemaversion="5">
-<suite id="s1" name="Diretoria" source="c:\Supernatural\Robot-Framework ( Novo )\Card23331CadastrarNovaDIretoria\tests\diretoria.robot">
-<test id="s1-t1" name="CT09: Consultar a lista de diretorias com sucesso" line="107">
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-08-05T21:00:05.760128" rpa="false" schemaversion="5">
+<suite id="s1" name="Diretoria" source="c:\Supernatural\Robot-Framework\Card23331CadastrarNovaDIretoria\tests\diretoria.robot">
+<test id="s1-t1" name="CT10: Consultar contagem de diretorias com sucesso" line="117">
 <kw name="Realizar Login e Salvar Token" owner="auth" type="SETUP">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-05T11:07:35.510216" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<msg time="2025-08-05T21:00:06.555835" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
 <var>${headers}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-05T11:07:35.509645" elapsed="0.003178"/>
+<status status="PASS" start="2025-08-05T21:00:06.555211" elapsed="0.003689"/>
 </kw>
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-08-05T11:07:35.514005" level="INFO">Creating Session using : alias=supernatural, url=https://api-supernatural.qacoders.dev.br/api, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<msg time="2025-08-05T21:00:06.560417" level="INFO">Creating Session using : alias=supernatural, url=https://api-supernatural.qacoders.dev.br/api, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
 <arg>alias=supernatural</arg>
 <arg>url=${BASE_URL}</arg>
 <arg>headers=${headers}</arg>
 <arg>verify=${True}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-08-05T11:07:35.513293" elapsed="0.001288"/>
+<status status="PASS" start="2025-08-05T21:00:06.559436" elapsed="0.001511"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-05T11:07:35.515643" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
+<msg time="2025-08-05T21:00:06.562138" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
 <var>${body}</var>
 <arg>mail=sysadmin@qacoders.com</arg>
 <arg>password=1234@Test</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-05T11:07:35.515045" elapsed="0.000846"/>
+<status status="PASS" start="2025-08-05T21:00:06.561427" elapsed="0.001560"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-08-05T11:07:39.690509" level="INFO">POST Request : url=https://api-supernatural.qacoders.dev.br/api/login 
+<msg time="2025-08-05T21:00:07.736222" level="INFO">POST Request : url=https://api-supernatural.qacoders.dev.br/api/login 
  path_url=/api/login 
  headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '58'} 
  body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
  </msg>
-<msg time="2025-08-05T11:07:39.692141" level="INFO">POST Response : url=https://api-supernatural.qacoders.dev.br/api/login 
+<msg time="2025-08-05T21:00:07.737311" level="INFO">POST Response : url=https://api-supernatural.qacoders.dev.br/api/login 
  status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '1334', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 05 Aug 2025 14:07:32 GMT', 'Etag': 'W/"536-F/Gk0T21XcF0XN4oLqz1p8TXPQw"', 'X-Powered-By': 'Express'} 
- body={"msg":"Olá Qa-Coders-SYSADMIN, autenticação autorizada com sucesso!","user":{"_id":"6888ecda6d0acf13553c9eec","fullName":"Qa-Coders-SYSADMIN","mail":"sysadmin@qacoders.com","password":"$2b$10$LgD0Z/OD9TL6XFx2gPEpq.S6JTP1EDgaT/I5LIo7VeMWOqtzQJh2K","accessProfile":"SYSADMIN","cpf":"11111111111","status":true,"audit":[{"registeredBy":{"userId":"111111111111111111","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 12:46:34 BRT","registrationNumber":"01","companyId":"Qa.Coders","_id":"6888ecda6d0acf13553c9eed"}],"__v":0},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQ0MDI4NTIsImV4cCI6MTc1NDQ4OTI1Mn0.OPBR5bMeFVph6uvbdpOVI1ZXMIXiNCExSQdb6g5ti2M"} 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '1334', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 06 Aug 2025 00:00:00 GMT', 'Etag': 'W/"536-Cwe91L2zzdXg/guYHJWcvv4g2gw"', 'X-Powered-By': 'Express'} 
+ body={"msg":"Olá Qa-Coders-SYSADMIN, autenticação autorizada com sucesso!","user":{"_id":"6888ecda6d0acf13553c9eec","fullName":"Qa-Coders-SYSADMIN","mail":"sysadmin@qacoders.com","password":"$2b$10$LgD0Z/OD9TL6XFx2gPEpq.S6JTP1EDgaT/I5LIo7VeMWOqtzQJh2K","accessProfile":"SYSADMIN","cpf":"11111111111","status":true,"audit":[{"registeredBy":{"userId":"111111111111111111","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 12:46:34 BRT","registrationNumber":"01","companyId":"Qa.Coders","_id":"6888ecda6d0acf13553c9eed"}],"__v":0},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQ0Mzg0MDAsImV4cCI6MTc1NDUyNDgwMH0.yjSfAM428Bhg0gujF8eiBhJ20xCJw-11j4rFhtH9hi0"} 
  </msg>
-<msg time="2025-08-05T11:07:39.692851" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-08-05T21:00:07.737862" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=supernatural</arg>
 <arg>url=/login</arg>
 <arg>json=${body}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-08-05T11:07:35.516245" elapsed="4.176870"/>
+<status status="PASS" start="2025-08-05T21:00:06.563683" elapsed="1.174397"/>
 </kw>
 <kw name="Status Should Be" owner="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" start="2025-08-05T11:07:39.693575" elapsed="0.000679"/>
+<status status="PASS" start="2025-08-05T21:00:07.738455" elapsed="0.000792"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-05T11:07:39.696149" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9...</msg>
+<msg time="2025-08-05T21:00:07.741131" level="INFO">${token} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9...</msg>
 <var>${token}</var>
 <arg>${response.json()["token"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-05T11:07:39.694642" elapsed="0.001837"/>
+<status status="PASS" start="2025-08-05T21:00:07.739649" elapsed="0.002097"/>
 </kw>
 <kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-08-05T11:07:39.699124" level="INFO">${AUTH_TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9...</msg>
+<msg time="2025-08-05T21:00:07.744752" level="INFO">${AUTH_TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9...</msg>
 <arg>${AUTH_TOKEN}</arg>
 <arg>${token}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-08-05T11:07:39.697015" elapsed="0.002498"/>
+<status status="PASS" start="2025-08-05T21:00:07.742317" elapsed="0.002781"/>
 </kw>
 <doc>Realiza o login com um usuário fixo e salva o token de autenticação
 para ser usado por toda a suíte de testes.</doc>
-<status status="PASS" start="2025-08-05T11:07:35.508496" elapsed="4.191324"/>
+<status status="PASS" start="2025-08-05T21:00:06.554126" elapsed="1.191215"/>
 </kw>
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-08-05T11:07:39.701516" level="INFO">Creating Session using : alias=supernatural, url=https://api-supernatural.qacoders.dev.br/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<arg>alias=supernatural</arg>
-<arg>url=${BASE_URL}</arg>
-<arg>verify=${True}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-08-05T11:07:39.700702" elapsed="0.002343"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-05T11:07:39.705201" level="INFO">${body} = {'mail': 'sysadmin@qacoders.com', 'password': '1234@Test'}</msg>
-<var>${body}</var>
-<arg>mail=${ADMIN_EMAIL}</arg>
-<arg>password=${ADMIN_PASSWORD}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-05T11:07:39.704069" elapsed="0.001580"/>
-</kw>
-<kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-08-05T11:07:40.791146" level="INFO">POST Request : url=https://api-supernatural.qacoders.dev.br/api/login 
- path_url=/api/login 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '58', 'Content-Type': 'application/json'} 
- body=b'{"mail": "sysadmin@qacoders.com", "password": "1234@Test"}' 
- </msg>
-<msg time="2025-08-05T11:07:40.791712" level="INFO">POST Response : url=https://api-supernatural.qacoders.dev.br/api/login 
- status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '1334', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 05 Aug 2025 14:07:34 GMT', 'Etag': 'W/"536-f24m540iLuVmQQfmvRRTbF6cVq8"', 'X-Powered-By': 'Express'} 
- body={"msg":"Olá Qa-Coders-SYSADMIN, autenticação autorizada com sucesso!","user":{"_id":"6888ecda6d0acf13553c9eec","fullName":"Qa-Coders-SYSADMIN","mail":"sysadmin@qacoders.com","password":"$2b$10$LgD0Z/OD9TL6XFx2gPEpq.S6JTP1EDgaT/I5LIo7VeMWOqtzQJh2K","accessProfile":"SYSADMIN","cpf":"11111111111","status":true,"audit":[{"registeredBy":{"userId":"111111111111111111","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 12:46:34 BRT","registrationNumber":"01","companyId":"Qa.Coders","_id":"6888ecda6d0acf13553c9eed"}],"__v":0},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQ0MDI4NTQsImV4cCI6MTc1NDQ4OTI1NH0.pLwihP15FAMaVWoXXx7VURcebcVRU-bKZ5wtmpGecfU"} 
- </msg>
-<msg time="2025-08-05T11:07:40.792737" level="INFO">${response_login} = &lt;Response [200]&gt;</msg>
-<var>${response_login}</var>
-<arg>alias=supernatural</arg>
-<arg>url=/login</arg>
-<arg>json=${body}</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-08-05T11:07:39.706778" elapsed="1.086243"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-05T11:07:40.796347" level="INFO">${json_response_login} = {'msg': 'Olá Qa-Coders-SYSADMIN, autenticação autorizada com sucesso!', 'user': {'_id': '6888ecda6d0acf13553c9eec', 'fullName': 'Qa-Coders-SYSADMIN', 'mail': 'sysadmin@qacoders.com', 'password': '$2b$...</msg>
-<var>${json_response_login}</var>
-<arg>${response_login.json()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-05T11:07:40.794226" elapsed="0.002581"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-05T11:07:40.800157" level="INFO">${token_obtido} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9...</msg>
-<var>${token_obtido}</var>
-<arg>${json_response_login["token"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-05T11:07:40.798073" elapsed="0.002431"/>
-</kw>
-<kw name="Set Suite Variable" owner="BuiltIn">
-<msg time="2025-08-05T11:07:40.802441" level="INFO">${AUTH_TOKEN} = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9...</msg>
-<arg>${AUTH_TOKEN}</arg>
-<arg>${token_obtido}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<status status="PASS" start="2025-08-05T11:07:40.801678" elapsed="0.001112"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-08-05T11:07:40.805066" level="INFO">${headers_com_auth} = {'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJze...</msg>
-<var>${headers_com_auth}</var>
-<arg>Content-Type=application/json</arg>
-<arg>Authorization=Bearer ${AUTH_TOKEN}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-08-05T11:07:40.803759" elapsed="0.001771"/>
-</kw>
-<kw name="Consultar diretorias" owner="diretoria">
+<kw name="Contar Diretorias" owner="diretoria">
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-08-05T11:07:41.493454" level="INFO">GET Request : url=https://api-supernatural.qacoders.dev.br/api/board?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQ0MDI4NTQsImV4cCI6MTc1NDQ4OTI1NH0.pLwihP15FAMaVWoXXx7VURcebcVRU-bKZ5wtmpGecfU 
- path_url=/api/board?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQ0MDI4NTQsImV4cCI6MTc1NDQ4OTI1NH0.pLwihP15FAMaVWoXXx7VURcebcVRU-bKZ5wtmpGecfU 
- headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+<msg time="2025-08-05T21:00:07.901633" level="INFO">GET Request : url=https://api-supernatural.qacoders.dev.br/api/board/count?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQ0Mzg0MDAsImV4cCI6MTc1NDUyNDgwMH0.yjSfAM428Bhg0gujF8eiBhJ20xCJw-11j4rFhtH9hi0 
+ path_url=/api/board/count?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQ0Mzg0MDAsImV4cCI6MTc1NDUyNDgwMH0.yjSfAM428Bhg0gujF8eiBhJ20xCJw-11j4rFhtH9hi0 
+ headers={'User-Agent': 'python-requests/2.32.4', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
  body=None 
  </msg>
-<msg time="2025-08-05T11:07:41.494728" level="INFO">GET Response : url=https://api-supernatural.qacoders.dev.br/api/board?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQ0MDI4NTQsImV4cCI6MTc1NDQ4OTI1NH0.pLwihP15FAMaVWoXXx7VURcebcVRU-bKZ5wtmpGecfU 
+<msg time="2025-08-05T21:00:07.903212" level="INFO">GET Response : url=https://api-supernatural.qacoders.dev.br/api/board/count?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODg4ZWNkYTZkMGFjZjEzNTUzYzllZWMiLCJmdWxsTmFtZSI6IlFhLUNvZGVycy1TWVNBRE1JTiIsIm1haWwiOiJzeXNhZG1pbkBxYWNvZGVycy5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRMZ0QwWi9PRDlUTDZYRngyZ1BFcHEuUzZKVFAxRURnYVQvSTVMSW83VmVNV09xdHpRSmgySyIsImFjY2Vzc1Byb2ZpbGUiOiJTWVNBRE1JTiIsImNwZiI6IjExMTExMTExMTExIiwic3RhdHVzIjp0cnVlLCJhdWRpdCI6W3sicmVnaXN0ZXJlZEJ5Ijp7InVzZXJJZCI6IjExMTExMTExMTExMTExMTExMSIsInVzZXJMb2dpbiI6InN5c2FkbWluQHFhY29kZXJzLmNvbSJ9LCJyZWdpc3RyYXRpb25EYXRlIjoidGVyw6dhLWZlaXJhLCAyOS8wNy8yMDI1LCAxMjo0NjozNCBCUlQiLCJyZWdpc3RyYXRpb25OdW1iZXIiOiIwMSIsImNvbXBhbnlJZCI6IlFhLkNvZGVycyIsIl9pZCI6IjY4ODhlY2RhNmQwYWNmMTM1NTNjOWVlZCJ9XSwiX192IjowLCJpYXQiOjE3NTQ0Mzg0MDAsImV4cCI6MTc1NDUyNDgwMH0.yjSfAM428Bhg0gujF8eiBhJ20xCJw-11j4rFhtH9hi0 
  status=200, reason=OK 
- headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '60738', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Tue, 05 Aug 2025 14:07:34 GMT', 'Etag': 'W/"ed42-QUIwwUWa3QcAEkJbg8K7D8narAM"', 'X-Powered-By': 'Express'} 
- body=[{"_id":"68893689e56b350eb66efd56","boardName":"Eiqfmjtadnt","boardCode":"01","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 18:00:57 BRT","_id":"68893689e56b350eb66efd57"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"quarta-feira, 30/07/2025, 21:31:28 BRT","_id":"688ab960e56b350eb66f0446"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"quarta-feira, 30/07/2025, 21:31:36 BRT","_id":"688ab968e56b350eb66f0452"}],"__v":0},{"_id":"688938f9e56b350eb66efd5f","boardName":"Edxwaknpuszgxhfcexmuc","boardCode":"02","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 18:11:21 BRT","_id":"688938f9e56b350eb66efd60"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"terça-feira, 29/07/2025, 18:11:21 BRT","_id":"688938f9e56b350eb66efd66"}],"__v":0},{"_id":"6889396ce56b350eb66efd6e","boardName":"Evhwzboklthggnuzxbtig","boardCode":"03","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 18:13:16 BRT","_id":"6889396ce56b350eb66efd6f"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"terça-feira, 29/07/2025, 18:13:16 BRT","_id":"6889396ce56b350eb66efd75"}],"__v":0},{"_id":"6889397ae56b350eb66efd7d","boardName":"Evvwahbycjbkkkeaibjik","boardCode":"04","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 18:13:30 BRT","_id":"6889397ae56b350eb66efd7e"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"terça-feira, 29/07/2025, 18:13:30 BRT","_id":"6889397ae56b350eb66efd84"}],"__v":0},{"_id":"688939c6e56b350eb66efd8c","boardName":"Ergthfstzclfvdopoekuh","boardCode":"05","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 18:14:46 BRT","_id":"688939c6e56b350eb66efd8d"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"terça-feira, 29/07/2025, 18:14:46 BRT","_id":"688939c6e56b350eb66efd93"}],"__v":0},{"_id":"68893a30e56b350eb66efd9b","boardName":"Eslcesjweucapycnnpzvo","boardCode":"06","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 18:16:32 BRT","_id":"68893a30e56b350eb66efd9c"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"terça-feira, 29/07/2025, 18:16:32 BRT","_id":"68893a30e56b350eb66efda2"}],"__v":0},{"_id":"68893a4ae56b350eb66efdaa","boardName":"agfabdiqaftsxtb","boardCode":"07","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 18:16:58 BRT","_id":"68893a4ae56b350eb66efdab"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"terça-feira, 29/07/2025, 18:16:58 BRT","_id":"68893a4ae56b350eb66efdb2"}],"__v":0},{"_id":"68893c14e56b350eb66efdba","boardName":"Agpialcdytjigjfv","boardCode":"08","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 18:24:36 BRT","_id":"68893c14e56b350eb66efdbb"}],"__v":0},{"_id":"68893c18e56b350eb66efdbf","boardName":"Bkazqdyenxemvkav","boardCode":"09","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 18:24:40 BRT","_id":"68893c18e56b350eb66efdc0"}],"__v":0},{"_id":"688941c6e56b350eb66efdd2","boardName":"Testes dos Testes","boardCode":"10","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"terça-feira, 29/07/2025, 18:48:54 BRT","_id":"688941c6e56b350eb66efdd3"}],"__v":0},{"_id":"688a9c77e56b350eb66efed3","boardName":"Eengekfmp","boardCode":"11","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:28:07 BRT","_id":"688a9c77e56b350eb66efed4"}],"__v":0},{"_id":"688a9d8ae56b350eb66efee4","boardName":"Operações teste","boardCode":"12","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:32:42 BRT","_id":"688a9d8ae56b350eb66efee5"}],"__v":0},{"_id":"688a9fabe56b350eb66eff0e","boardName":"Diretoria Atualizada","boardCode":"13","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:41:47 BRT","_id":"688a9fabe56b350eb66eff0f"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"quarta-feira, 30/07/2025, 19:41:47 BRT","_id":"688a9fabe56b350eb66eff15"}],"__v":0},{"_id":"688a9fade56b350eb66eff1f","boardName":"Diretoria de Teste","boardCode":"14","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:41:49 BRT","_id":"688a9fade56b350eb66eff20"}],"__v":0},{"_id":"688aa0a6e56b350eb66eff38","boardName":"Diretoria Atualizadaa","boardCode":"15","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:45:58 BRT","_id":"688aa0a6e56b350eb66eff39"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"quarta-feira, 30/07/2025, 19:45:58 BRT","_id":"688aa0a6e56b350eb66eff3f"}],"__v":0},{"_id":"688aa0a9e56b350eb66eff49","boardName":"Diretoria de Testes","boardCode":"16","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:46:01 BRT","_id":"688aa0a9e56b350eb66eff4a"}],"__v":0},{"_id":"688aa0f5e56b350eb66eff54","boardName":"Diretoria Atualizadax","boardCode":"17","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:47:17 BRT","_id":"688aa0f5e56b350eb66eff55"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"quarta-feira, 30/07/2025, 19:47:17 BRT","_id":"688aa0f5e56b350eb66eff5b"}],"__v":0},{"_id":"688aa0f8e56b350eb66eff65","boardName":"Diretoria de Texte","boardCode":"18","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:47:20 BRT","_id":"688aa0f8e56b350eb66eff66"}],"__v":0},{"_id":"688aa167e56b350eb66eff7e","boardName":"Diretoria Atualizadaxx","boardCode":"19","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:49:11 BRT","_id":"688aa167e56b350eb66eff7f"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"quarta-feira, 30/07/2025, 19:49:11 BRT","_id":"688aa167e56b350eb66eff85"}],"__v":0},{"_id":"688aa16ae56b350eb66eff8f","boardName":"Diretoria de Textee","boardCode":"20","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:49:14 BRT","_id":"688aa16ae56b350eb66eff90"}],"__v":0},{"_id":"688aa193e56b350eb66eff9a","boardName":"Diretoria de Texteee","boardCode":"21","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:49:55 BRT","_id":"688aa193e56b350eb66eff9b"}],"__v":0},{"_id":"688aa241e56b350eb66effcd","boardName":"Diretoria de Aula","boardCode":"22","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:52:49 BRT","_id":"688aa241e56b350eb66effce"}],"__v":0},{"_id":"688aa24fe56b350eb66effde","boardName":"Ezjwhbzpblu","boardCode":"23","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:53:03 BRT","_id":"688aa24fe56b350eb66effdf"}],"__v":0},{"_id":"688aa2bae56b350eb66effe5","boardName":"Eihccbzwdty","boardCode":"24","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:54:50 BRT","_id":"688aa2bae56b350eb66effe6"}],"__v":0},{"_id":"688aa2ebe56b350eb66effec","boardName":"Diretoria Aulaaa","boardCode":"25","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feira, 30/07/2025, 19:55:39 BRT","_id":"688aa2ebe56b350eb66effed"},{"updatedBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"updateDate":"quarta-feira, 30/07/2025, 19:55:39 BRT","_id":"688aa2ebe56b350eb66efff3"}],"__v":0},{"_id":"688aa2eee56b350eb66efffd","boardName":"Diretoria de Aulaa","boardCode":"26","status":true,"audit":[{"registeredBy":{"userId":"6888ecda6d0acf13553c9eec","userLogin":"sysadmin@qacoders.com"},"registrationDate":"quarta-feir... (set the log level to DEBUG or TRACE to see the full content) 
+ headers={'Access-Control-Allow-Origin': '*', 'Content-Length': '13', 'Content-Type': 'application/json; charset=utf-8', 'Date': 'Wed, 06 Aug 2025 00:00:00 GMT', 'Etag': 'W/"d-UxoblytQKeAmae1kZ6wF+5grTm8"', 'X-Powered-By': 'Express'} 
+ body={"count":217} 
  </msg>
-<msg time="2025-08-05T11:07:41.496084" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-08-05T21:00:07.904446" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=supernatural</arg>
-<arg>url=/board?token=${AUTH_TOKEN}</arg>
+<arg>url=/board/count?token=${AUTH_TOKEN}</arg>
 <arg>params=${filtros}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-08-05T11:07:40.807890" elapsed="0.688390"/>
+<status status="PASS" start="2025-08-05T21:00:07.747320" elapsed="0.157518"/>
 </kw>
 <return>
 <value>${response}</value>
-<status status="PASS" start="2025-08-05T11:07:41.496450" elapsed="0.000188"/>
+<status status="PASS" start="2025-08-05T21:00:07.905235" elapsed="0.000393"/>
 </return>
-<msg time="2025-08-05T11:07:41.496928" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<msg time="2025-08-05T21:00:07.906405" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
 <var>${resp}</var>
-<doc>Envia uma requisição GET para buscar diretorias.</doc>
-<status status="PASS" start="2025-08-05T11:07:40.806765" elapsed="0.690357"/>
+<doc>Envia uma requisição GET para /board/count.</doc>
+<status status="PASS" start="2025-08-05T21:00:07.746241" elapsed="0.161307"/>
 </kw>
 <kw name="Status Should Be" owner="RequestsLibrary">
 <arg>200</arg>
 <arg>${resp}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" start="2025-08-05T11:07:41.498962" elapsed="0.001025"/>
+<status status="PASS" start="2025-08-05T21:00:07.908515" elapsed="0.000772"/>
 </kw>
+<tag>count</tag>
 <tag>GET</tag>
 <tag>smoke</tag>
-<status status="PASS" start="2025-08-05T11:07:35.507122" elapsed="5.993861"/>
+<status status="PASS" start="2025-08-05T21:00:06.552121" elapsed="1.358180"/>
 </test>
-<status status="PASS" start="2025-08-05T11:07:34.888100" elapsed="6.615534"/>
+<status status="PASS" start="2025-08-05T21:00:05.768083" elapsed="2.144917"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">count</stat>
 <stat pass="1" fail="0" skip="0">GET</stat>
 <stat pass="1" fail="0" skip="0">smoke</stat>
 </tag>
